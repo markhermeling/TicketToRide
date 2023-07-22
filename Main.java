@@ -1,6 +1,6 @@
 
 
-
+import java.util.List;
 
 public class Main {
 
@@ -14,5 +14,9 @@ public class Main {
         System.out.print("Distance between " + Cities.names[Cities.cities.Emden.ordinal()] + " and " + Cities.names[Cities.cities.Groningen.ordinal()] + " is ");
         System.out.println( b.getBoard(Cities.cities.Emden, Cities.cities.Groningen));
     }
+
+    BruteForce bf = new BruteForce(b);
+
+    CostPath cp = bf.shortestPath(Cities.cities.Emden, Cities.cities.Emmen);
     
 }
