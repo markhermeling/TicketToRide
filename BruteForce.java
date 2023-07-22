@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BruteForce extends Algorithm {
@@ -11,7 +12,8 @@ public class BruteForce extends Algorithm {
 
     public CostPath shortestPath(Cities.cities start, Cities.cities end) {
         System.out.println("BruteForce Shortest Path: level 0");
-        CostPath cp = shortestPath(start, end, 0, null, 1);
+        CostPath cp = new CostPath();
+        cp = shortestPath(start, end, 0, null, 1);
     
         return cp;
     }
@@ -21,15 +23,20 @@ public class BruteForce extends Algorithm {
 
         for (Cities.cities c : Cities.cities.values()) {
 
-            if (visited.contains(c)) {
+            if (visited != null && visited.contains(c)) {
                 // Already visited this city
                 continue;
             }
+
             if (b.getBoard(start, c) > 0)
             {
                 // There is a route between start and c
                 // Add the cost of the route to the cost
                 cost += b.getBoard(start, c);
+
+                if (visited == null) {
+                    visited = new ArrayList<Cities.cities>();
+                }
                 visited.add(c);
                 if (c == end) {
                     // We have reached the end
