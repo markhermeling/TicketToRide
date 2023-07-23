@@ -23,6 +23,8 @@ public class BruteForce extends Algorithm {
             return;
         }
         System.out.println("Shortest Path: " + paths.get(0).cost + " : " + paths.get(0).path);
+        System.out.println("Longest Path: " + paths.get(paths.size()-1).cost + " : " + paths.get(paths.size()-1).path);
+        System.out.println("Number of paths: " + paths.size());
     
     }
 
