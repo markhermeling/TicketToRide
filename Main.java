@@ -1,5 +1,3 @@
-
-
 import java.util.List;
 
 public class Main {
@@ -11,12 +9,12 @@ public class Main {
 
         b = new Board();
 
-        System.out.print("Distance between " + Cities.names[Cities.cities.Emden.ordinal()] + " and " + Cities.names[Cities.cities.Groningen.ordinal()] + " is ");
-        System.out.println( b.getBoard(Cities.cities.Emden, Cities.cities.Groningen));
+        //System.out.print("Distance between " + Cities.names[Cities.cities.Emden.ordinal()] + " and " + Cities.names[Cities.cities.Groningen.ordinal()] + " is ");
+        //System.out.println( b.getBoard(Cities.cities.Emden, Cities.cities.Groningen));
     
 
         BruteForce bf = new BruteForce(b);
 
-         CostPath cp = bf.shortestPath(Cities.cities.Emden, Cities.cities.Emmen);
+         CostPath cp = bf.shortestPath(Cities.cities.Waddeneilanden, Cities.cities.Emmen);
     }
 }
