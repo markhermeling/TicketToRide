@@ -15,6 +15,8 @@ public class Main {
 
         BruteForce bf = new BruteForce(b);
 
-         CostPath cp = bf.shortestPath(Cities.cities.Waddeneilanden, Cities.cities.Emmen);
+        bf.shortestPath(Cities.cities.Waddeneilanden, Cities.cities.Emmen);
+       // bf.listPaths();
+        bf.printShortestPath();
     }
 }

@@ -77,6 +77,7 @@ class Board {
         // First version of this program we will use just the distance. Once we have that working
         // We can switch the int to a class that contains the distance and the colours of the route and cost
         board[x.ordinal()][y.ordinal()] = value;
+        board[y.ordinal()][x.ordinal()] = value;
     }
 
     public int getBoard(Cities.cities x, Cities.cities y) {
