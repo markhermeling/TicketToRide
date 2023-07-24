@@ -17,6 +17,8 @@ public class BruteForce extends Algorithm {
 
     public void printShortestPath()
     {
+        Collections.sort(paths, (Comparator.<CostPath>
+        comparingInt(path1 -> path1.cost)).thenComparingInt(path2 -> path2.cost));
         if (paths.size() == 0)
         {
             System.out.println("No paths found");
@@ -51,54 +53,47 @@ public class BruteForce extends Algorithm {
         shortestPath(start, end, 0, visited, 0);
         long endTime = System.currentTimeMillis();
         
-        System.out.println("BruteForce Shortest Path: " + (endTime-startTime) + "ms");
+        System.out.println("BruteForce Shortest Path calculation time: " + (endTime-startTime) + "ms");
         return;
     }
 
     public void shortestPath(Cities.cities start, Cities.cities end, int cost, List<Cities.cities> visited, int level) {
      //   System.out.println("BruteForce Shortest Path: level " + level);
 
-        
+        // Iterate over all cities
         for (Cities.cities c : Cities.cities.values()) {
+            
+            // The cost to go from start to the next step (c)
+            int nextStep = b.getBoard(start, c);
 
             if (visited.contains(c)) {
                 // Already visited this city
-                continue;
+                // This is crucial step, otherwise the recursion never ends
+                // DO nothing
             }
-            int nextStep = b.getBoard(start, c);
-
-            if (nextStep > 0 && c == end) {
+            else if (nextStep > 0 && c == end) {            
+                // If the cost != 0 and c is the end, then we are there
                 // We have reached the end
                 // Return the cost and the path
                 CostPath cp = new CostPath();
                 cp.cost = cost + nextStep;                    
-                cp.path = visited;
+                cp.path = new ArrayList<Cities.cities>(visited);
                 cp.path.add(end);
                 paths.add(cp);
                 //System.out.println("Found path with cost " + cp.cost);
-                continue;
             }
- 
-
-            if (nextStep > 0)
+            else if (nextStep > 0)
             {
                 // There is a route between start and c
-                // Recurse to find the shortest path
+                // Recurse to find the all paths
 
                 List<Cities.cities>nextVisited = new ArrayList<Cities.cities>(visited);
             
                 nextVisited.add(c);
 
                 shortestPath(c, end, cost+nextStep, nextVisited, level + 1);
-            
             }
-            else
-            {
-                // There is no route between start and c
-                // Try the next city
-                continue;
-            }
-      
+    
         }
         // we have tried all cities. Return
         return;

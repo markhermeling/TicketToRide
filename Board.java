@@ -8,6 +8,11 @@ class Board {
 
     private void createGraph()
     {
+
+        for (int x = 0; x < size; x++)
+            for (int y = 0; y < size; y++)
+                board[x][y] = 0;
+
         // All Possible Connections Between All The Train Station
         setBoard(Cities.cities.Emden, Cities.cities.Groningen, 3);
         setBoard(Cities.cities.Emden, Cities.cities.Lingen, 7);
