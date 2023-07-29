@@ -18,5 +18,8 @@ public class Main {
         bf.shortestPath(Cities.cities.Waddeneilanden, Cities.cities.Emmen);
        // bf.listPaths();
         bf.printShortestPath();
+
+        Dijkstra d = new Dijkstra(b);
+        d.shortestPath(Cities.cities.Waddeneilanden, Cities.cities.Emmen);
     }
 }

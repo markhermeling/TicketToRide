@@ -49,11 +49,11 @@ public class BruteForce extends Algorithm {
      
         List<Cities.cities> visited = new ArrayList<Cities.cities>();
         visited.add(start);
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         shortestPath(start, end, 0, visited, 0);
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
         
-        System.out.println("BruteForce Shortest Path calculation time: " + (endTime-startTime) + "ms");
+        System.out.println("BruteForce Shortest Path calculation time: " + (endTime-startTime) + "ns");
         return;
     }
 
