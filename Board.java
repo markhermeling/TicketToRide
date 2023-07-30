@@ -66,6 +66,9 @@ class Board {
         setBoard(Cities.cities.Breda, Cities.cities.Rotterdam,2);
         setBoard(Cities.cities.Breda, Cities.cities.Turnhout,2);
         setBoard(Cities.cities.Turnhout, Cities.cities.Hasselt,3);
+        setBoard(Cities.cities.Heerlen, Cities.cities.Sittard,1);
+        setBoard(Cities.cities.Sittard, Cities.cities.Roermond,1);
+        setBoard(Cities.cities.Sittard, Cities.cities.Maastricht,2);
     }
 
     public Board() {
