@@ -1,5 +1,7 @@
+import java.lang.reflect.GenericDeclaration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 public class DijkstraToll extends Algorithm{
     DijkstraToll(Board b) {
@@ -9,7 +11,6 @@ public class DijkstraToll extends Algorithm{
     private List<Cities.cities> unvisited= new ArrayList<Cities.cities>();
     private CostPath[] tollPath = new CostPath[Cities.cities.values().length];
 
-    @Override
     public void shortestPath(Cities.cities start, Cities.cities end) {
         // Add all cities to the unvisited list
         for (Cities.cities c : Cities.cities.values())
@@ -36,9 +37,8 @@ public class DijkstraToll extends Algorithm{
         long endTime = System.nanoTime();
 
         System.out.println("Smallest Toll Price: " + tollPath[end.ordinal()].cost + " : " + tollPath[end.ordinal()].path);
+        System.out.println("This Path will cost : " + getTrainCost(end) + " train(s)");
         System.out.println("Dijkstra Smallest Toll Price calculation time: " + (endTime-startTime) + "ns");
-
-        return;
     }
     public void iterateShortestPath(Cities.cities start, Cities.cities end) {
         // Update the shortest path to all cities reachable from start
@@ -75,4 +75,15 @@ public class DijkstraToll extends Algorithm{
         }
         iterateShortestPath(next, end);
     }
+
+    public int getTrainCost( Cities.cities end){
+        int cost = 0;
+        //Get the bridge toll from the board add that value to int cost
+        for(int i = 0; i <= (tollPath[end.ordinal()].path.size() - 2) ; i++){
+            cost += b.getBoard(tollPath[end.ordinal()].path.get(i), tollPath[end.ordinal()].path.get(i+1));
+        }
+        return cost;
+    }
 }
+
+

@@ -40,9 +40,8 @@ public class Dijkstra extends Algorithm{
         long endTime = System.nanoTime();
         
         System.out.println("Shortest Path: " + paths[end.ordinal()].cost + " : " + paths[end.ordinal()].path);
+        System.out.println("This Path Will Cost : " + getTollCost(end) + " Bridge Toll Token(s)");
         System.out.println("Dijkstra Shortest Path calculation time: " + (endTime-startTime) + "ns");
-        
-        return;
     }
 
     public void iterateShortestPath(Cities.cities start, Cities.cities end)
@@ -80,6 +79,13 @@ public class Dijkstra extends Algorithm{
             return;
         }
         iterateShortestPath(next, end);
+    }
+    public int getTollCost( Cities.cities end){
+        int cost = 0;
+        for(int i = 0; i <= (paths[end.ordinal()].path.size() - 2) ; i++){
+            cost += b.getBoard(paths[end.ordinal()].path.get(i), paths[end.ordinal()].path.get(i+1));
+        }
+        return cost;
     }
 
 }
