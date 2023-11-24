@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Dijkstra extends Algorithm{
@@ -7,16 +8,16 @@ public class Dijkstra extends Algorithm{
         super(b);
     }
 
-    private List<Cities.cities> unvisited= new ArrayList<Cities.cities>();;
+    private List<Cities.cities> unvisited= new ArrayList<Cities.cities>();
     private CostPath[] paths = new CostPath[Cities.cities.values().length];
 
+
+
     public void shortestPath(Cities.cities start, Cities.cities end) {
+
      
         // Add all cities to the unvisited list
-        for (Cities.cities c : Cities.cities.values())
-        {
-            unvisited.add(c);
-        }
+        unvisited.addAll(Arrays.asList(Cities.cities.values()));
 
         // Initialize all distances to infinity
         for (Cities.cities x : Cities.cities.values())
@@ -25,6 +26,7 @@ public class Dijkstra extends Algorithm{
                 paths[x.ordinal()].cost = Integer.MAX_VALUE;
                 paths[x.ordinal()].path = new ArrayList<Cities.cities>();
                 paths[x.ordinal()].path.add(start);
+
         }
         
         // Set the distance to the start city to 0
@@ -36,9 +38,8 @@ public class Dijkstra extends Algorithm{
         long endTime = System.nanoTime();
         
         System.out.println("Shortest Path: " + paths[end.ordinal()].cost + " : " + paths[end.ordinal()].path);
+        System.out.println("This Path Will Cost : " + getTollCost(end) + " Bridge Toll Token(s)");
         System.out.println("Dijkstra Shortest Path calculation time: " + (endTime-startTime) + "ns");
-        
-        return;
     }
 
     public void iterateShortestPath(Cities.cities start, Cities.cities end)
@@ -76,6 +77,13 @@ public class Dijkstra extends Algorithm{
             return;
         }
         iterateShortestPath(next, end);
+    }
+    public int getTollCost( Cities.cities end){
+        int cost = 0;
+        for(int i = 0; i <= (paths[end.ordinal()].path.size() - 2) ; i++){
+            cost += b.getBoard(paths[end.ordinal()].path.get(i), paths[end.ordinal()].path.get(i+1));
+        }
+        return cost;
     }
 
 }

@@ -19,7 +19,7 @@ public class BruteForce extends Algorithm {
     {
         Collections.sort(paths, (Comparator.<CostPath>
         comparingInt(path1 -> path1.cost)).thenComparingInt(path2 -> path2.cost));
-        if (paths.size() == 0)
+        if (paths.isEmpty())
         {
             System.out.println("No paths found");
             return;
