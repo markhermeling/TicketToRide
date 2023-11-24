@@ -1,17 +1,17 @@
-
-
-
+import javax.swing.*;
 
 class Board {
-    private int[][] board;
+    private int[][] board,tollBoard;
     private int size;
 
     private void createGraph()
     {
 
         for (int x = 0; x < size; x++)
-            for (int y = 0; y < size; y++)
+            for (int y = 0; y < size; y++) {
                 board[x][y] = 0;
+                tollBoard[x][y] = 0;
+            }
 
         // All Possible Connections Between All The Train Station
         setBoard(Cities.cities.Emden, Cities.cities.Groningen, 3,3);
@@ -71,6 +71,7 @@ class Board {
     public Board() {
         this.size = Cities.cities.values().length; 
         board = new int[size][size];
+        tollBoard = new int[size][size];
         this.createGraph();
     }
 
@@ -78,16 +79,21 @@ class Board {
 
 
 
-    public void setBoard(Cities.cities x, Cities.cities y, int value, int BridgeTool) {
+    public void setBoard(Cities.cities x, Cities.cities y, int value, int bridgeTool) {
         // Used to set the distance between 2 cities
         // First version of this program we will use just the distance. Once we have that working
         // We can switch the int to a class that contains the distance and the colours of the route and cost
         board[x.ordinal()][y.ordinal()] = value;
         board[y.ordinal()][x.ordinal()] = value;
+        tollBoard[x.ordinal()][y.ordinal()] = bridgeTool;
+        tollBoard[y.ordinal()][x.ordinal()] = bridgeTool;
     }
 
     public int getBoard(Cities.cities x, Cities.cities y) {
         return board[x.ordinal()][y.ordinal()];
+    }
+    public int getBridgeToll(Cities.cities x, Cities.cities y) {
+        return tollBoard[x.ordinal()][y.ordinal()];
     }
 
     public void printBoard() {

@@ -1,3 +1,4 @@
+
 public abstract class Algorithm {
     static Board b;
 

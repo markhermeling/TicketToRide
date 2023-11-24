@@ -9,7 +9,6 @@ public class Main {
 
         b = new Board();
 
-
         BruteForce bf = new BruteForce(b);
 
         bf.shortestPath(Cities.cities.Waddeneilanden, Cities.cities.Emmen);
@@ -18,5 +17,9 @@ public class Main {
 
         Dijkstra d = new Dijkstra(b);
         d.shortestPath(Cities.cities.Waddeneilanden, Cities.cities.Emmen);
+
+        DijkstraToll dt = new DijkstraToll(b);
+        dt.shortestPath(Cities.cities.Waddeneilanden, Cities.cities.Emmen);
+
     }
 }
