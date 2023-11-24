@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Dijkstra extends Algorithm{
@@ -16,10 +17,7 @@ public class Dijkstra extends Algorithm{
 
      
         // Add all cities to the unvisited list
-        for (Cities.cities c : Cities.cities.values())
-        {
-            unvisited.add(c);
-        }
+        unvisited.addAll(Arrays.asList(Cities.cities.values()));
 
         // Initialize all distances to infinity
         for (Cities.cities x : Cities.cities.values())

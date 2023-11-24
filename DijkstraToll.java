@@ -1,5 +1,6 @@
 import java.lang.reflect.GenericDeclaration;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -13,10 +14,7 @@ public class DijkstraToll extends Algorithm{
 
     public void shortestPath(Cities.cities start, Cities.cities end) {
         // Add all cities to the unvisited list
-        for (Cities.cities c : Cities.cities.values())
-        {
-            unvisited.add(c);
-        }
+        unvisited.addAll(Arrays.asList(Cities.cities.values()));
 
         // Initialize all distances to infinity
         for (Cities.cities x : Cities.cities.values())
