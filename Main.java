@@ -1,12 +1,12 @@
-
+import java.io.IOException;
 
 public class Main {
 
     static private Board b;
 
-    public static void main(String[] args ){
-        Cities.cities start = Cities.cities.Waddeneilanden;
-        Cities.cities end = Cities.cities.Emmen;
+    public static void main(String[] args ) throws IOException {
+        Cities.cities start = Cities.cities.DenHaag;
+        Cities.cities end = Cities.cities.Lingen;
 
         System.out.println("Ticket to ride shortest path calculator");
 
@@ -26,5 +26,12 @@ public class Main {
 
         DijkstraToll dt = new DijkstraToll(b);
         dt.shortestPath(start,end);
+
+        MostPopularPath mp = new MostPopularPath();
+        mp.pathCalculation();
+
+        DestinationCards dc = new DestinationCards();
+        dc.csvAllDestinations();
+
     }
 }
