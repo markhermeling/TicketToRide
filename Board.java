@@ -79,14 +79,14 @@ class Board {
 
 
 
-    public void setBoard(Cities.cities x, Cities.cities y, int value, int bridgeTool) {
+    public void setBoard(Cities.cities x, Cities.cities y, int value, int bridgeToll) {
         // Used to set the distance between 2 cities
         // First version of this program we will use just the distance. Once we have that working
         // We can switch the int to a class that contains the distance and the colours of the route and cost
         board[x.ordinal()][y.ordinal()] = value;
         board[y.ordinal()][x.ordinal()] = value;
-        tollBoard[x.ordinal()][y.ordinal()] = bridgeTool;
-        tollBoard[y.ordinal()][x.ordinal()] = bridgeTool;
+        tollBoard[x.ordinal()][y.ordinal()] = bridgeToll;
+        tollBoard[y.ordinal()][x.ordinal()] = bridgeToll;
     }
 
     public int getBoard(Cities.cities x, Cities.cities y) {
