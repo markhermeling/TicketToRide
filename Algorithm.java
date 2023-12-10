@@ -7,6 +7,6 @@ public abstract class Algorithm {
     }
 
     
-    abstract public void shortestPath(Cities.cities start, Cities.cities end);
+    abstract public void shortestPath(City start, City end);
    
 }
