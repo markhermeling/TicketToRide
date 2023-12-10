@@ -8,7 +8,7 @@ public class Main {
         System.out.println("Ticket to ride shortest path calculator");
 
         System.out.println("--------------------------------------------------------------"); // Adds some space
-        b = new Board();
+        b = new Board("Netherlands.txt");
 
         BruteForce bf = new BruteForce(b);
         bf.shortestPath(Cities.cities.Waddeneilanden, Cities.cities.Emmen);
