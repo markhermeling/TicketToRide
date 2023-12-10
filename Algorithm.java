@@ -1,3 +1,4 @@
+import java.util.List;
 
 public abstract class Algorithm {
     static Board b;
@@ -7,6 +8,6 @@ public abstract class Algorithm {
     }
 
     
-    abstract public void shortestPath(Cities.cities start, Cities.cities end);
+    abstract public List<Cities.cities> shortestPath(Cities.cities start, Cities.cities end, boolean print);
    
 }

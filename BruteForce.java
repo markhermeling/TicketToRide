@@ -45,7 +45,7 @@ public class BruteForce extends Algorithm {
 
     }
 
-    public void shortestPath(Cities.cities start, Cities.cities end) {
+    public List<Cities.cities> shortestPath(Cities.cities start, Cities.cities end, boolean print) {
      
         List<Cities.cities> visited = new ArrayList<Cities.cities>();
         visited.add(start);
@@ -54,7 +54,7 @@ public class BruteForce extends Algorithm {
         long endTime = System.nanoTime();
         
         System.out.println("BruteForce Shortest Path calculation time: " + (endTime-startTime) + "ns");
-        return;
+        return visited;
     }
 
     public void shortestPath(Cities.cities start, Cities.cities end, int cost, List<Cities.cities> visited, int level) {

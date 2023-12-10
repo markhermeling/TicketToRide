@@ -14,24 +14,22 @@ public class Main {
         b = new Board();
 
         BruteForce bf = new BruteForce(b);
-        bf.shortestPath(start,end);
+        bf.shortestPath(start,end,true);
         bf.printShortestPath();
 
         System.out.println("--------------------------------------------------------------"); // Adds some space
 
         Dijkstra d = new Dijkstra(b);
-        d.shortestPath(start,end);
+        d.shortestPath(start,end,true);
 
         System.out.println("--------------------------------------------------------------"); // Adds some space
 
         DijkstraToll dt = new DijkstraToll(b);
-        dt.shortestPath(start,end);
+        dt.shortestPath(start,end,true);
 
         MostPopularPath mp = new MostPopularPath();
         mp.pathCalculation();
 
-        DestinationCards dc = new DestinationCards();
-        dc.csvAllDestinations();
 
     }
 }

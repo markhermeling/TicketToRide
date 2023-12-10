@@ -13,7 +13,7 @@ public class Dijkstra extends Algorithm{
 
 
 
-    public void shortestPath(Cities.cities start, Cities.cities end) {
+    public List<Cities.cities> shortestPath(Cities.cities start, Cities.cities end, boolean print) {
 
      
         // Add all cities to the unvisited list
@@ -36,11 +36,17 @@ public class Dijkstra extends Algorithm{
         long startTime = System.nanoTime();
         iterateShortestPath(start, end);
         long endTime = System.nanoTime();
-        
-        System.out.println("Shortest Path: " + paths[end.ordinal()].cost + " : " + paths[end.ordinal()].path);
-        System.out.println("This Path Will Cost : " + getTollCost(end) + " Bridge Toll Token(s)");
-        System.out.println("Dijkstra Shortest Path calculation time: " + (endTime-startTime) + "ns");
+        if(print) {
+            System.out.println("Shortest Path: " + paths[end.ordinal()].cost + " : " + paths[end.ordinal()].path);
+            System.out.println("This Path Will Cost : " + getTollCost(end) + " Bridge Toll Token(s)");
+            System.out.println("Dijkstra Shortest Path calculation time: " + (endTime - startTime) + "ns");
+            return null;
+        }else {
+            return paths[end.ordinal()].path;
+        }
     }
+
+
 
     public void iterateShortestPath(Cities.cities start, Cities.cities end)
     {

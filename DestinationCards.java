@@ -1,8 +1,4 @@
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class DestinationCards {
@@ -10,6 +6,8 @@ public class DestinationCards {
     private int size;
      private  List<Cities.cities> citiesX = new ArrayList<>();
     private List<Cities.cities> citiesY= new ArrayList<>();
+
+    private ArrayList<ArrayList<Cities.cities>> allDestination = new ArrayList<>();
 
     private void createGraph()
     {
@@ -80,15 +78,13 @@ public class DestinationCards {
     public int getDestination(Cities.cities x, Cities.cities y) {
         return destination[x.ordinal()][y.ordinal()];
     }
-    public void csvAllDestinations() throws IOException {
-        File csvFile = new File("AllDestination.csv");
-        FileWriter csvWriter = new FileWriter(csvFile);
-        csvWriter.write("ID, City 1, City 2\n");
+    public ArrayList<ArrayList<Cities.cities>> getAllDestinations() {
+
         for (Cities.cities cX: Cities.cities.values()) {
             for (Cities.cities cY: Cities.cities.values()) {
                 if (getDestination(cX, cY) != 0) {
-                    citiesY.add(cY);
                     citiesX.add(cX);
+                    citiesY.add(cY);
                 }
             }
         }
@@ -101,8 +97,10 @@ public class DestinationCards {
             }
         }
         for (int i = 0; i <= citiesY.size()-1;i++){
-            csvWriter.write(i + "," + citiesY.get(i) + "," + citiesX.get(i) + "\n");
+            allDestination.add(new ArrayList<>());
+            allDestination.get(i).add(citiesX.get(i));
+            allDestination.get(i).add(citiesY.get(i));
         }
-        csvWriter.close();
+        return allDestination;
     }
 }
