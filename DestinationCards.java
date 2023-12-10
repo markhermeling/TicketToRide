@@ -1,9 +1,8 @@
-import java.io.IOException;
 import java.util.*;
 
 public class DestinationCards {
     private int destination[][];
-    private int size;
+    private int size = Cities.cities.values().length;
      private  List<Cities.cities> citiesX = new ArrayList<>();
     private List<Cities.cities> citiesY= new ArrayList<>();
 
@@ -11,12 +10,6 @@ public class DestinationCards {
 
     private void createGraph()
     {
-
-        for (int x = 0; x < size; x++)
-            for (int y = 0; y < size; y++) {
-
-            }
-
         // All Destination Cards
         setDestination(Cities.cities.Groningen, Cities.cities.Amsterdam,21);
         setDestination(Cities.cities.Groningen, Cities.cities.Enschede,14);
@@ -61,11 +54,12 @@ public class DestinationCards {
         setDestination(Cities.cities.Amsterdam, Cities.cities.DenHaag,9);
         setDestination(Cities.cities.Emmen, Cities.cities.Antwerpen,33);
         setDestination(Cities.cities.Lingen, Cities.cities.DenHaag,26);
+        setDestination(Cities.cities.Haarlem, Cities.cities.Breda,12);
+        setDestination(Cities.cities.Utrecht, Cities.cities.Hasselt,22);
 
     }
 
     public DestinationCards() {
-        this.size = Cities.cities.values().length;
         destination = new int[size][size];
         this.createGraph();
     }

@@ -9,14 +9,15 @@ public class MostPopularPath {
     DestinationCards dc = new DestinationCards();
     Dijkstra d = new Dijkstra(new Board());
 
+    private int size = Cities.cities.values().length;
     List<Cities.cities> currentPath = new ArrayList<>();
 
     private final ArrayList<ArrayList<Cities.cities>> AllDestinations = dc.getAllDestinations();
 
      int[][]mostPopularPath = new int[Cities.cities.values().length][Cities.cities.values().length];
     public void pathCalculation() throws IOException {
-        for (int i = 0; i < Cities.cities.values().length; i++) {
-            for (int j = 0; j < Cities.cities.values().length; j++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 mostPopularPath[i][j] = 0;
             }
         }
@@ -35,12 +36,13 @@ public class MostPopularPath {
             }
             count++;
         }
-        File csvFile = new File("AllPaths.csv");
+        File csvFile = new File("MostPopularSegment.csv");
         FileWriter csvWriter = new FileWriter(csvFile);
-        for (int i = 0; i < Cities.cities.values().length; i++) {
-            for (int j = 0; j < Cities.cities.values().length; j++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 if (mostPopularPath[i][j] != 0){
                     csvWriter.write(Cities.names[i]+ "," +Cities.names[j] + "," + mostPopularPath[i][j] + "\n");
+
                     mostPopularPath[j][i] = 0;
                 }
             }

@@ -1,0 +1,44 @@
+Emden,Emmen,1
+Groningen,Emmen,1
+Groningen,Leeuwarden,2
+Groningen,Zwolle,2
+Lingen,Emmen,1
+Lingen,Enschede,3
+Emmen,Zwolle,4
+Waddeneilanden,Den Helder,2
+Leeuwarden,Sneek,4
+Sneek,Den Helder,2
+Sneek,Lelystad,4
+Den Helder,Haarlem,6
+Zwolle,Lelystad,8
+Zwolle,Arnhem,3
+Lelystad,Amsterdam,10
+Enschede,Arnhem,2
+Enschede,Duisburg,2
+Haarlem,Amsterdam,2
+Haarlem,Den Haag,6
+Amsterdam,Utrecht,4
+Amsterdam,Rotterdam,9
+Utrecht,Arnhem,3
+Utrecht,Rotterdam,3
+Arnhem,Nijmegen,7
+Nijmegen,Eindhoven,7
+Den Bosch,Eindhoven,7
+Den Bosch,Breda,6
+Maastricht,Eindhoven,2
+Maastricht,Liège,1
+Maastricht,Roermond,2
+Maastricht,Hasselt,1
+Rotterdam,Den Haag,5
+Rotterdam,Breda,8
+Rotterdam,Antwerpen,7
+Den Haag,Middelburg,2
+Eindhoven,Roermond,2
+Duisburg,Roermond,3
+Breda,Turnhout,6
+Antwerpen,Turnhout,1
+Antwerpen,Middelburg,1
+Antwerpen,Aarschot,2
+Liège,Hasselt,3
+Turnhout,Hasselt,4
+Aarschot,Hasselt,1
