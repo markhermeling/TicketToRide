@@ -11,7 +11,7 @@ public class MostPopularPath {
 
     List<Cities.cities> currentPath = new ArrayList<>();
 
-    private ArrayList<ArrayList<Cities.cities>> AllDestinations = dc.getAllDestinations();
+    private final ArrayList<ArrayList<Cities.cities>> AllDestinations = dc.getAllDestinations();
 
      int[][]mostPopularPath = new int[Cities.cities.values().length][Cities.cities.values().length];
     public void pathCalculation() throws IOException {
@@ -41,8 +41,10 @@ public class MostPopularPath {
             for (int j = 0; j < Cities.cities.values().length; j++) {
                 if (mostPopularPath[i][j] != 0){
                     csvWriter.write(Cities.names[i]+ "," +Cities.names[j] + "," + mostPopularPath[i][j] + "\n");
+                    mostPopularPath[j][i] = 0;
                 }
             }
         }
+        csvWriter.close();
     }
 }

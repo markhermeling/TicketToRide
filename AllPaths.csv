@@ -4,76 +4,41 @@ Groningen,Leeuwarden,2
 Groningen,Zwolle,2
 Lingen,Emmen,1
 Lingen,Enschede,3
-Emmen,Emden,2
-Emmen,Groningen,1
-Emmen,Lingen,1
 Emmen,Zwolle,4
 Waddeneilanden,Den Helder,2
-Leeuwarden,Groningen,2
 Leeuwarden,Sneek,5
-Sneek,Leeuwarden,5
 Sneek,Den Helder,3
 Sneek,Lelystad,3
-Den Helder,Waddeneilanden,2
-Den Helder,Sneek,3
 Den Helder,Haarlem,6
-Zwolle,Groningen,2
-Zwolle,Emmen,4
 Zwolle,Lelystad,9
 Zwolle,Enschede,1
 Zwolle,Arnhem,3
-Lelystad,Sneek,3
-Lelystad,Zwolle,9
 Lelystad,Amsterdam,9
-Enschede,Lingen,3
-Enschede,Zwolle,1
 Enschede,Arnhem,2
 Enschede,Duisburg,2
-Haarlem,Den Helder,6
 Haarlem,Amsterdam,5
 Haarlem,Den Haag,9
-Amsterdam,Lelystad,9
-Amsterdam,Haarlem,5
 Amsterdam,Utrecht,5
 Amsterdam,Rotterdam,4
-Utrecht,Amsterdam,5
 Utrecht,Arnhem,3
 Utrecht,Rotterdam,1
-Arnhem,Zwolle,3
-Arnhem,Enschede,2
-Arnhem,Utrecht,3
 Arnhem,Nijmegen,7
-Nijmegen,Arnhem,7
 Nijmegen,Eindhoven,9
 Den Bosch,Eindhoven,7
 Den Bosch,Breda,6
 Maastricht,Eindhoven,3
 Maastricht,Roermond,1
 Maastricht,Hasselt,1
-Rotterdam,Amsterdam,4
-Rotterdam,Utrecht,1
 Rotterdam,Den Haag,6
 Rotterdam,Breda,8
 Rotterdam,Antwerpen,4
-Den Haag,Haarlem,9
-Den Haag,Rotterdam,6
 Den Haag,Middelburg,3
-Eindhoven,Nijmegen,9
-Eindhoven,Den Bosch,7
-Eindhoven,Maastricht,3
 Eindhoven,Roermond,2
-Duisburg,Enschede,2
 Duisburg,Roermond,2
-Breda,Den Bosch,6
-Breda,Rotterdam,8
 Breda,Turnhout,8
-Antwerpen,Rotterdam,4
 Antwerpen,Turnhout,2
 Antwerpen,Middelburg,1
 Antwerpen,Aarschot,1
 Liège,Hasselt,3
-Turnhout,Breda,8
-Turnhout,Antwerpen,2
 Turnhout,Hasselt,4
-Roermond,Maastricht,1
-Roermond,Eindhov
+Aarschot,Hasselt,1
