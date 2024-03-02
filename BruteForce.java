@@ -10,6 +10,7 @@ public class BruteForce extends Algorithm {
     private List<CostPath> paths;
 
 
+
     BruteForce(Board b) {
         super(b);
         paths = new ArrayList<CostPath>();
@@ -37,17 +38,17 @@ public class BruteForce extends Algorithm {
         for (CostPath cp :paths) {
             System.out.print("Cost: " + cp.cost);
             System.out.print(" Path: ");
-            for (Cities.cities c : cp.path) {
-                System.out.print(Cities.names[c.ordinal()]+"-");
+            for (City c : cp.path) {
+                System.out.print(c.name +"-");
             }
             System.out.println();
         }
 
     }
 
-    public void shortestPath(Cities.cities start, Cities.cities end) {
-     
-        List<Cities.cities> visited = new ArrayList<Cities.cities>();
+    public void shortestPath(City start, City end) {
+
+        List<City> visited = new ArrayList<>();
         visited.add(start);
         long startTime = System.nanoTime();
         shortestPath(start, end, 0, visited, 0);
@@ -57,11 +58,11 @@ public class BruteForce extends Algorithm {
         return;
     }
 
-    public void shortestPath(Cities.cities start, Cities.cities end, int cost, List<Cities.cities> visited, int level) {
+    public void shortestPath(City start, City end, int cost, List<City> visited, int level) {
      //   System.out.println("BruteForce Shortest Path: level " + level);
 
         // Iterate over all cities
-        for (Cities.cities c : Cities.cities.values()) {
+        for (City c : b.myCities.cities) {
             
             // The cost to go from start to the next step (c)
             int nextStep = b.getBoard(start, c);
@@ -71,13 +72,11 @@ public class BruteForce extends Algorithm {
                 // This is crucial step, otherwise the recursion never ends
                 // DO nothing
             }
-            else if (nextStep > 0 && c == end) {            
+            else if (nextStep > 0 && c == end) {
                 // If the cost != 0 and c is the end, then we are there
                 // We have reached the end
                 // Return the cost and the path
-                CostPath cp = new CostPath();
-                cp.cost = cost + nextStep;                    
-                cp.path = new ArrayList<Cities.cities>(visited);
+                CostPath cp = new CostPath(cost + nextStep,new ArrayList<City>(visited));
                 cp.path.add(end);
                 paths.add(cp);
                 //System.out.println("Found path with cost " + cp.cost);
@@ -87,19 +86,14 @@ public class BruteForce extends Algorithm {
                 // There is a route between start and c
                 // Recurse to find the all paths
 
-                List<Cities.cities>nextVisited = new ArrayList<Cities.cities>(visited);
+                List<City>nextVisited = new ArrayList<City>(visited);
             
                 nextVisited.add(c);
 
                 shortestPath(c, end, cost+nextStep, nextVisited, level + 1);
             }
-    
         }
         // we have tried all cities. Return
         return;
-
     }
-
-
-
 }

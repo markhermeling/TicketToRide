@@ -2,5 +2,9 @@ import java.util.List;
 
 public class CostPath {
     public int cost;
-    public List<Cities.cities> path;
+    public List<City> path;
+    public CostPath(int cost,List<City> path){
+        this.path = path;
+        this.cost = cost;
+    }
 }
