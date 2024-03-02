@@ -1,5 +1,3 @@
-
-
 public class Main {
 
     static private Board b;

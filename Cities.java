@@ -11,7 +11,6 @@ public class Cities {
     // All instances of Cities.cities need to be replaced with a for loop and an int
     // Need to figure out how to acces Cities through BruteForce
 
-
      List<String> names = new ArrayList<>();
 
     public  int size;
@@ -55,7 +54,7 @@ public class Cities {
             size = names.size();
             System.out.println( "Cities: " );
             for (int i = 0; i < names.size(); i++) {
-                City c =  new City (i,names.get(i)); //TODO add trim here
+                City c =  new City (i,names.get(i).trim());
                 cities.add(c);
                 System.out.print(c.name + ", ");
             }
